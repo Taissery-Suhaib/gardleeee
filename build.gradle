@@ -17,7 +17,7 @@ dependencies {
 war {
     archiveFileName = "${project.name}.war"
 
-    webAppDirName = 'src/main/webapp'
+    webAppDirName = 'webapp/src/main/webapp'
 
     // Add any additional web resources if needed
     from('src/main/resources') {
