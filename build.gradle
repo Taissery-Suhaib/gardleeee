@@ -1,0 +1,35 @@
+plugins {
+    id 'war'
+}
+
+group = 'com.example'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    providedCompile 'javax.servlet:javax.servlet-api:4.0.1'
+    testImplementation 'junit:junit:4.12'
+}
+
+war {
+    archiveFileName = "${project.name}.war"
+
+    webAppDirName = 'src/main/webapp'
+
+    // Add any additional web resources if needed
+    from('src/main/resources') {
+        include '**/*'
+    }
+}
+
+task sayHello {
+    doLast {
+        println "Hello, World!"
+    }
+}
+
+// Add a task to print "Hello, World!" after the build
+build.finalizedBy(sayHello)
